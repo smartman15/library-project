@@ -17,3 +17,14 @@ function addBookToLibrary(author, title, pages, read){
     const book = new Book(author, title, pages, read);
     myLibrary.push(book);
 }
+
+// const book1 = new Book("Hajime Isayama", "Attack on Titan", 500, true);
+// const book2 = new Book("Marion Wheeler", "Antimemetics Division", 555, false);
+// const book3 = new Book("Caine", "The Amazing Digital Circus", 9, true);
+
+addBookToLibrary("Hajime Isayama", "Attack on Titan", 500, true);
+addBookToLibrary("Marion Wheeler", "Antimemetics Division", 555, false);
+addBookToLibrary("Caine", "The Amazing Digital Circus", 9, true);
+
+
+alert(myLibrary[0].id);
