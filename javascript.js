@@ -5,6 +5,7 @@ function Book(author, title, pages, read){
         throw Error("you gotta use the 'new' keyword bro")
     }
 
+    this.id = self.crypto.randomUUID();
     this.author = author;
     this.title = title;
     this.pages = pages;
