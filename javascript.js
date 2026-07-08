@@ -31,7 +31,11 @@ addBookToLibrary("Caine", "The Amazing Digital Circus", 9, true);
 console.log(myLibrary);
 function displayBooks(){
     for(let i = 0; i < myLibrary.length; i++){
-        console.log(myLibrary[i].author);
+        console.log(`Author: ${myLibrary[i].author}`);
+        console.log(`Title: ${myLibrary[i].title}`);
+        console.log(`Number of pages: ${myLibrary[i].pages}`);
+        console.log(`Has been read: ${myLibrary[i].read}`);
+        console.log('');
     }
 }
 
