@@ -27,4 +27,14 @@ addBookToLibrary("Marion Wheeler", "Antimemetics Division", 555, false);
 addBookToLibrary("Caine", "The Amazing Digital Circus", 9, true);
 
 
-alert(myLibrary[0].id);
+// alert(myLibrary[0].id);
+console.log(myLibrary);
+function displayBooks(){
+    for(let i = 0; i < myLibrary.length; i++){
+        console.log(myLibrary[i].author);
+    }
+}
+
+displayBooks();
+
+// const bookList = document.querySelector('.book-list');
