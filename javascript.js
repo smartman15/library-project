@@ -37,7 +37,7 @@ function displayBooks(){
         const title = document.createElement("div");
         const pages = document.createElement("div");
         const read = document.createElement("div");
-        const space = document.createElement("div");
+        const lineBreak = document.createElement("br");
 
         author.textContent = `Author: ${myLibrary[i].author}`;
         title.textContent= `Title: ${myLibrary[i].title}`;
@@ -49,7 +49,7 @@ function displayBooks(){
         bookList.append(title);
         bookList.append(pages);
         bookList.append(read);
-        bookList.append(space);
+        bookList.append(lineBreak);
         // console.log(`Author: ${myLibrary[i].author}`);
         // console.log(`Title: ${myLibrary[i].title}`);
         // console.log(`Number of pages: ${myLibrary[i].pages}`);
