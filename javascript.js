@@ -34,13 +34,27 @@ console.log(myLibrary);
 function displayBooks(){
     for(let i = 0; i < myLibrary.length; i++){
         const author = document.createElement("div");
+        const title = document.createElement("div");
+        const pages = document.createElement("div");
+        const read = document.createElement("div");
+        const space = document.createElement("div");
+
         author.textContent = `Author: ${myLibrary[i].author}`;
+        title.textContent= `Title: ${myLibrary[i].title}`;
+        pages.textContent = `Number of pages: ${myLibrary[i].pages}`;
+        read.textContent = `Has been read: ${myLibrary[i].read}`;
+
+
         bookList.appendChild(author);
+        bookList.append(title);
+        bookList.append(pages);
+        bookList.append(read);
+        bookList.append(space);
         // console.log(`Author: ${myLibrary[i].author}`);
         // console.log(`Title: ${myLibrary[i].title}`);
         // console.log(`Number of pages: ${myLibrary[i].pages}`);
         // console.log(`Has been read: ${myLibrary[i].read}`);
-        console.log('');
+        // console.log('');
     }
 }
 
