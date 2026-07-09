@@ -60,3 +60,15 @@ function displayBooks(){
 
 displayBooks();
 
+const openDialog = document.querySelector(".add-book");
+const closeDialog = document.querySelector(".close");
+
+const dialog = document.querySelector("dialog");
+
+openDialog.addEventListener("click", () => {
+    dialog.showModal();
+})
+
+closeDialog.addEventListener("click", () => {
+    dialog.close();
+})
