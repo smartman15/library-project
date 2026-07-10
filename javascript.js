@@ -66,8 +66,11 @@ const dialog = document.querySelector("#book-dialog")
 const showDialog = document.querySelector(".add-book");
 // select button that closes the dialog
 const closeDialog = document.getElementById("closeDialog");
+// select author input value
+const authorValue = dialog.querySelector("#author");
 // select output tag to display input value
-const output = doucment.querySelector("output");
+const outputBox = document.querySelector("output");
+
 
 
 // create function to open dialog
@@ -76,5 +79,16 @@ showDialog.addEventListener("click", () => {
 });
 
 // create function that gets the author input value and places it in output tag
+closeDialog.addEventListener("click", (event) => {
+    event.preventDefault();
+    dialog.close(authorValue.value);
+})
 
-// create function to close dialog
+// create function to close dialog using close button
+dialog.addEventListener("close", (e) => {
+    outputBox.value = 
+    dialog.returnValue === "default" ?
+    "no return value" :
+    `Return value: ${dialog.returnValue}`;
+});
+
