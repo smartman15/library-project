@@ -22,9 +22,9 @@ function addBookToLibrary(author, title, pages, read){
 // const book2 = new Book("Marion Wheeler", "Antimemetics Division", 555, false);
 // const book3 = new Book("Caine", "The Amazing Digital Circus", 9, true);
 
-addBookToLibrary("Hajime Isayama", "Attack on Titan", 500, true);
-addBookToLibrary("Marion Wheeler", "Antimemetics Division", 555, false);
-addBookToLibrary("Caine", "The Amazing Digital Circus", 9, true);
+// addBookToLibrary("Hajime Isayama", "Attack on Titan", 500, true);
+// addBookToLibrary("Marion Wheeler", "Antimemetics Division", 555, false);
+// addBookToLibrary("Caine", "The Amazing Digital Circus", 9, true);
 
 
 // alert(myLibrary[0].id);
@@ -55,6 +55,12 @@ function displayBooks(){
         // console.log(`Number of pages: ${myLibrary[i].pages}`);
         // console.log(`Has been read: ${myLibrary[i].read}`);
         // console.log('');
+    }
+}
+
+function clearBookList(){
+    while(bookList.firstChild){
+        bookList.removeChild(bookList.lastChild);
     }
 }
 
@@ -114,6 +120,7 @@ dialog.addEventListener("close", (e) => {
     else{
         outputBox.value = "Book successfully added!";
         addBookToLibrary(author, title, pages, read);
+        clearBookList();
         displayBooks();
     }
 });
