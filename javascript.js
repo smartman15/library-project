@@ -68,8 +68,11 @@ const showDialog = document.querySelector(".add-book");
 const closeDialog = document.getElementById("closeDialog");
 // select confirm button
 const confirmBtn = document.getElementById("confirmBtn");
-// select author input value
+// select author, title, number of pages, read status input value
 const authorValue = dialog.querySelector("#author");
+const titleValue = dialog.querySelector("#title");
+const pagesValue = dialog.querySelector("#pages");
+const readValue = dialog.querySelector("#read-status");
 // select output tag to display input value
 const outputBox = document.querySelector("output");
 
@@ -83,14 +86,21 @@ showDialog.addEventListener("click", () => {
 // create function that gets the author input value and places it in output tag
 confirmBtn.addEventListener("click", (event) => {
     event.preventDefault();
-    dialog.close(authorValue.value);
+    dialog.close([authorValue.value, 
+        titleValue.value,
+        pagesValue.value,
+        readValue.value
+    ]);
 })
 
 // create function to close dialog using close button
 dialog.addEventListener("close", (e) => {
+    const bookValues = dialog.returnValue.split(",");
+    console.log(`book values: ${bookValues}`);
+    console.log(bookValues[0]);
     outputBox.value = 
     dialog.returnValue === "default" ?
     "no return value" :
-    `Return value: ${dialog.returnValue}`;
+    `Return value: ${dialog.returnValue[0]}`;
 });
 
