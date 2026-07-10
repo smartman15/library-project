@@ -112,8 +112,9 @@ dialog.addEventListener("close", (e) => {
         outputBox.value = "No return value";
     }
     else{
-        outputBox.value = `Return value: ${author}`;
-
+        outputBox.value = "Book successfully added!";
+        addBookToLibrary(author, title, pages, read);
+        displayBooks();
     }
 });
 
