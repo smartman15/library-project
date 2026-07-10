@@ -96,11 +96,24 @@ confirmBtn.addEventListener("click", (event) => {
 // create function to close dialog using close button
 dialog.addEventListener("close", (e) => {
     const bookValues = dialog.returnValue.split(",");
+    const author = bookValues[0];
+    const title = bookValues[1];
+    const pages = bookValues[2];
+    const read = bookValues[3];
     console.log(`book values: ${bookValues}`);
-    console.log(bookValues[0]);
-    outputBox.value = 
-    dialog.returnValue === "default" ?
-    "no return value" :
-    `Return value: ${dialog.returnValue[0]}`;
+    console.log(pages);
+
+    // outputBox.value = 
+    // dialog.returnValue === "default" ?
+    // "no return value" :
+    // `Return value: ${dialog.returnValue[0]}`;
+
+    if(dialog.returnValue === "default"){
+        outputBox.value = "No return value";
+    }
+    else{
+        outputBox.value = `Return value: ${author}`;
+
+    }
 });
 
