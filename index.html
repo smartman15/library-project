@@ -16,11 +16,19 @@
 
     <button class="add-book">Add new book</button>
 
-    <dialog>
-        <p>haha lol</p>
+    <dialog id="book-dialog">
+        <p>
+            <label for="author">Enter author: </label>
+            <input type="text" id="author">
+        </p>
 
-        <button class="close">Close</button>
+        <div>
+            <button value="cancel" formmethod="dialog">Cancel</button>
+            <button id="confirmBtn" value="default">Confirm</button>
+        </div>
     </dialog>
+
+    <output></output>
 </body>
 
 </html>

@@ -60,15 +60,11 @@ function displayBooks(){
 
 displayBooks();
 
-const openDialog = document.querySelector(".add-book");
-const closeDialog = document.querySelector(".close");
+// select the dialog
+// select the button that opens the dialog
+// select button that closes the dialog
 
-const dialog = document.querySelector("dialog");
 
-openDialog.addEventListener("click", () => {
-    dialog.showModal();
-})
+// create function to open dialog
 
-closeDialog.addEventListener("click", () => {
-    dialog.close();
-})
+// create function to close dialog
