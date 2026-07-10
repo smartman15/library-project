@@ -61,10 +61,20 @@ function displayBooks(){
 displayBooks();
 
 // select the dialog
+const dialog = document.querySelector("#book-dialog")
 // select the button that opens the dialog
+const showDialog = document.querySelector(".add-book");
 // select button that closes the dialog
+const closeDialog = document.getElementById("closeDialog");
+// select output tag to display input value
+const output = doucment.querySelector("output");
 
 
 // create function to open dialog
+showDialog.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+// create function that gets the author input value and places it in output tag
 
 // create function to close dialog
