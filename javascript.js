@@ -117,6 +117,10 @@ dialog.addEventListener("close", (e) => {
     if(dialog.returnValue === "default"){
         outputBox.value = "No return value";
     }
+    else if(dialog.returnValue === "cancel"){
+        outputBox.value = "Cancelled";
+    }
+
     else{
         outputBox.value = "Book successfully added!";
         addBookToLibrary(author, title, pages, read);
