@@ -83,13 +83,13 @@ function clearBookList(){
 }
 
 function removeBook(index){
-    // get the index of the book
-    // remove the book at that index
+    // get the id of the book
+    // remove the book at that id
 }
 
 // on clicking the remove button on the book's display
-    // get the book's index
-    // pass the index as the parameter value for removeBook()
+    // get the book's id
+    // pass the id as the parameter value for removeBook()
     // update display using displayBooks()
 
 displayBooks();
