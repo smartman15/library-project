@@ -46,10 +46,10 @@ function displayBooks(){
 
 
         bookList.appendChild(author);
-        bookList.append(title);
-        bookList.append(pages);
-        bookList.append(read);
-        bookList.append(lineBreak);
+        bookList.appendChild(title);
+        bookList.appendChild(pages);
+        bookList.appendChild(read);
+        bookList.appendChild(lineBreak);
         // console.log(`Author: ${myLibrary[i].author}`);
         // console.log(`Title: ${myLibrary[i].title}`);
         // console.log(`Number of pages: ${myLibrary[i].pages}`);
