@@ -33,6 +33,7 @@ console.log(myLibrary);
 
 function displayBooks(){
     for(let i = 0; i < myLibrary.length; i++){
+        const delBtn = document.createElement("button");
         const container = document.createElement("div");
         const bookNumber = document.createElement("p");
         const author = document.createElement("div");
@@ -41,13 +42,15 @@ function displayBooks(){
         const read = document.createElement("div");
         const lineBreak = document.createElement("br");
 
-        bookNumber.textContent = `Book ${i+1}`;
+        // bookNumber.textContent = `Book ${i+1}`;
+        container.textContent = `Book ${i+1}`;
         author.textContent = `Author: ${myLibrary[i].author}`;
         title.textContent= `Title: ${myLibrary[i].title}`;
         pages.textContent = `Number of pages: ${myLibrary[i].pages}`;
         read.textContent = `Has been read: ${myLibrary[i].read}`;
 
         container.appendChild(bookNumber);
+        container.appendChild(delBtn);
         container.appendChild(author);
         container.appendChild(title);
         container.appendChild(pages);
@@ -68,7 +71,7 @@ function clearBookList(){
     }
 }
 
-function removeBook(){
+function removeBook(index){
     // get the index of the book
     // remove the book at that index
 }
