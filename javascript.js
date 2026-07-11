@@ -37,6 +37,9 @@ function displayBooks(){
         delBtn.classList.add("del-button");
         delBtn.textContent = "Delete book";
 
+        
+            
+
         const container = document.createElement("div");
         const bookNumber = document.createElement("div");
         const author = document.createElement("div");
@@ -69,6 +72,16 @@ function displayBooks(){
         // console.log(`Number of pages: ${myLibrary[i].pages}`);
         // console.log(`Has been read: ${myLibrary[i].read}`);
         // console.log('');
+
+        // on clicking the remove button on the book's display
+        delBtn.addEventListener("click", () => {
+            // get the book's id by getting the id from the parent of the btn
+            const bookId = delBtn.parentNode.dataset.id;
+            // pass the id as the parameter value for removeBook()
+            removeBook(bookId);
+            // update display using displayBooks()
+            displayBooks();
+        });
     }
 }
 
@@ -82,15 +95,13 @@ function clearBookList(){
     }
 }
 
-function removeBook(index){
+function removeBook(id){
     // get the id of the book
     // remove the book at that id
+    myLibrary = myLibrary.filter((book) => book.id != id);
 }
 
-// on clicking the remove button on the book's display
-    // get the book's id
-    // pass the id as the parameter value for removeBook()
-    // update display using displayBooks()
+
 
 displayBooks();
 
