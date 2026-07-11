@@ -34,13 +34,19 @@ console.log(myLibrary);
 function displayBooks(){
     for(let i = 0; i < myLibrary.length; i++){
         const delBtn = document.createElement("button");
+        delBtn.classList.add("del-button");
+
         const container = document.createElement("div");
-        const bookNumber = document.createElement("p");
+        // const bookNumber = document.createElement("p");
         const author = document.createElement("div");
         const title = document.createElement("div");
         const pages = document.createElement("div");
         const read = document.createElement("div");
         const lineBreak = document.createElement("br");
+
+        // create id attribute for container 
+        // set the value to the book's id
+        setContainerId(container, myLibrary[i].id);
 
         // bookNumber.textContent = `Book ${i+1}`;
         container.textContent = `Book ${i+1}`;
@@ -49,7 +55,7 @@ function displayBooks(){
         pages.textContent = `Number of pages: ${myLibrary[i].pages}`;
         read.textContent = `Has been read: ${myLibrary[i].read}`;
 
-        container.appendChild(bookNumber);
+        // container.appendChild(bookNumber);
         container.appendChild(delBtn);
         container.appendChild(author);
         container.appendChild(title);
@@ -63,6 +69,10 @@ function displayBooks(){
         // console.log(`Has been read: ${myLibrary[i].read}`);
         // console.log('');
     }
+}
+
+function setContainerId(container, id){
+    container.dataset.id = id;
 }
 
 function clearBookList(){
