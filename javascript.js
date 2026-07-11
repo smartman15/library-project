@@ -35,9 +35,10 @@ function displayBooks(){
     for(let i = 0; i < myLibrary.length; i++){
         const delBtn = document.createElement("button");
         delBtn.classList.add("del-button");
+        delBtn.textContent = "Delete book";
 
         const container = document.createElement("div");
-        // const bookNumber = document.createElement("p");
+        const bookNumber = document.createElement("div");
         const author = document.createElement("div");
         const title = document.createElement("div");
         const pages = document.createElement("div");
@@ -48,14 +49,14 @@ function displayBooks(){
         // set the value to the book's id
         setContainerId(container, myLibrary[i].id);
 
-        // bookNumber.textContent = `Book ${i+1}`;
-        container.textContent = `Book ${i+1}`;
+        bookNumber.textContent = `Book ${i+1}`;
+        // container.textContent = `Book ${i+1}`;
         author.textContent = `Author: ${myLibrary[i].author}`;
         title.textContent= `Title: ${myLibrary[i].title}`;
         pages.textContent = `Number of pages: ${myLibrary[i].pages}`;
         read.textContent = `Has been read: ${myLibrary[i].read}`;
 
-        // container.appendChild(bookNumber);
+        container.appendChild(bookNumber);
         container.appendChild(delBtn);
         container.appendChild(author);
         container.appendChild(title);
