@@ -68,6 +68,16 @@ function clearBookList(){
     }
 }
 
+function removeBook(){
+    // get the index of the book
+    // remove the book at that index
+}
+
+// on clicking the remove button on the book's display
+    // get the book's index
+    // pass the index as the parameter value for removeBook()
+    // update display using displayBooks()
+
 displayBooks();
 
 // select the dialog
