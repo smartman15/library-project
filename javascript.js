@@ -1,7 +1,7 @@
-const myLibrary = [];
+let myLibrary = [];
 
-function Book(author, title, pages, read){
-    if(!new.target){
+function Book(author, title, pages, read) {
+    if (!new.target) {
         throw Error("you gotta use the 'new' keyword bro")
     }
 
@@ -13,7 +13,7 @@ function Book(author, title, pages, read){
 }
 
 
-function addBookToLibrary(author, title, pages, read){
+function addBookToLibrary(author, title, pages, read) {
     const book = new Book(author, title, pages, read);
     myLibrary.push(book);
 }
@@ -31,75 +31,89 @@ function addBookToLibrary(author, title, pages, read){
 const bookList = document.querySelector('.book-list');
 console.log(myLibrary);
 
-function displayBooks(){
-    for(let i = 0; i < myLibrary.length; i++){
-        const delBtn = document.createElement("button");
-        delBtn.classList.add("del-button");
-        delBtn.textContent = "Delete book";
+function displayBooks() {
+    if (myLibrary.length != 0) {
+        for (let i = 0; i < myLibrary.length; i++) {
+            const delBtn = document.createElement("button");
+            delBtn.classList.add("del-button");
+            delBtn.textContent = "Delete book";
 
-        
-            
 
-        const container = document.createElement("div");
-        const bookNumber = document.createElement("div");
-        const author = document.createElement("div");
-        const title = document.createElement("div");
-        const pages = document.createElement("div");
-        const read = document.createElement("div");
-        const lineBreak = document.createElement("br");
 
-        // create id attribute for container 
-        // set the value to the book's id
-        setContainerId(container, myLibrary[i].id);
 
-        bookNumber.textContent = `Book ${i+1}`;
-        // container.textContent = `Book ${i+1}`;
-        author.textContent = `Author: ${myLibrary[i].author}`;
-        title.textContent= `Title: ${myLibrary[i].title}`;
-        pages.textContent = `Number of pages: ${myLibrary[i].pages}`;
-        read.textContent = `Has been read: ${myLibrary[i].read}`;
+            const container = document.createElement("div");
+            const bookNumber = document.createElement("div");
+            const author = document.createElement("div");
+            const title = document.createElement("div");
+            const pages = document.createElement("div");
+            const read = document.createElement("div");
+            const lineBreak = document.createElement("br");
 
-        container.appendChild(bookNumber);
-        container.appendChild(delBtn);
-        container.appendChild(author);
-        container.appendChild(title);
-        container.appendChild(pages);
-        container.appendChild(read);
-        container.appendChild(lineBreak);
-        bookList.append(container);
-        // console.log(`Author: ${myLibrary[i].author}`);
-        // console.log(`Title: ${myLibrary[i].title}`);
-        // console.log(`Number of pages: ${myLibrary[i].pages}`);
-        // console.log(`Has been read: ${myLibrary[i].read}`);
-        // console.log('');
+            // create id attribute for container 
+            // set the value to the book's id
+            setContainerId(container, myLibrary[i].id);
 
-        // on clicking the remove button on the book's display
-        delBtn.addEventListener("click", () => {
-            // get the book's id by getting the id from the parent of the btn
-            const bookId = delBtn.parentNode.dataset.id;
-            // pass the id as the parameter value for removeBook()
-            removeBook(bookId);
-            // update display using displayBooks()
-            displayBooks();
-        });
+            bookNumber.textContent = `Book ${i + 1}`;
+            // container.textContent = `Book ${i+1}`;
+            author.textContent = `Author: ${myLibrary[i].author}`;
+            title.textContent = `Title: ${myLibrary[i].title}`;
+            pages.textContent = `Number of pages: ${myLibrary[i].pages}`;
+            read.textContent = `Has been read: ${myLibrary[i].read}`;
+
+            container.appendChild(bookNumber);
+            container.appendChild(delBtn);
+            container.appendChild(author);
+            container.appendChild(title);
+            container.appendChild(pages);
+            container.appendChild(read);
+            container.appendChild(lineBreak);
+            bookList.append(container);
+            // console.log(`Author: ${myLibrary[i].author}`);
+            // console.log(`Title: ${myLibrary[i].title}`);
+            // console.log(`Number of pages: ${myLibrary[i].pages}`);
+            // console.log(`Has been read: ${myLibrary[i].read}`);
+            // console.log('');
+        }
     }
+
+    else{
+        const div = document.createElement("div");
+        div.textContent = "Library is empty";
+        bookList.append(div);
+    }
+
 }
 
-function setContainerId(container, id){
+function setContainerId(container, id) {
     container.dataset.id = id;
 }
 
-function clearBookList(){
-    while(bookList.firstChild){
+function clearBookList() {
+    while (bookList.firstChild) {
         bookList.removeChild(bookList.lastChild);
     }
 }
 
-function removeBook(id){
+function removeBook(id) {
     // get the id of the book
     // remove the book at that id
     myLibrary = myLibrary.filter((book) => book.id != id);
 }
+
+// get all buttons with class "del-button"
+// add click event listener to all of those buttons
+// on click, delete books from myLibrary[]
+// refresh display
+
+// on clicking the remove button on the book's display
+delBtn.addEventListener("click", () => {
+    // get the book's id by getting the id from the parent of the btn
+    const bookId = delBtn.parentNode.dataset.id;
+    // pass the id as the parameter value for removeBook()
+    removeBook(bookId);
+    // update display using displayBooks()
+    displayBooks();
+});
 
 
 
@@ -131,10 +145,10 @@ showDialog.addEventListener("click", () => {
 // create function that gets the author input value and places it in output tag
 confirmBtn.addEventListener("click", (event) => {
     event.preventDefault();
-    dialog.close([authorValue.value, 
-        titleValue.value,
-        pagesValue.value,
-        readValue.value
+    dialog.close([authorValue.value,
+    titleValue.value,
+    pagesValue.value,
+    readValue.value
     ]);
 })
 
@@ -153,14 +167,14 @@ dialog.addEventListener("close", (e) => {
     // "no return value" :
     // `Return value: ${dialog.returnValue[0]}`;
 
-    if(dialog.returnValue === "default"){
+    if (dialog.returnValue === "default") {
         outputBox.value = "No return value";
     }
-    else if(dialog.returnValue === "cancel"){
+    else if (dialog.returnValue === "cancel") {
         outputBox.value = "Cancelled";
     }
 
-    else{
+    else {
         outputBox.value = "Book successfully added!";
         addBookToLibrary(author, title, pages, read);
         clearBookList();
