@@ -37,6 +37,13 @@ function displayBooks() {
             const delBtn = document.createElement("button");
             delBtn.classList.add("del-button");
             delBtn.textContent = "Delete book";
+            // on clicking the remove button on the book's display
+            delBtn.addEventListener("click", () => {
+                // get the book's id by getting the id from the parent of the btn
+                const bookId = delBtn.parentNode.dataset.id;
+                // pass the id as the parameter value for removeBook()
+                removeBook(bookId);
+            });
 
 
 
@@ -76,7 +83,7 @@ function displayBooks() {
         }
     }
 
-    else{
+    else {
         const div = document.createElement("div");
         div.textContent = "Library is empty";
         bookList.append(div);
@@ -105,15 +112,7 @@ function removeBook(id) {
 // on click, delete books from myLibrary[]
 // refresh display
 
-// on clicking the remove button on the book's display
-delBtn.addEventListener("click", () => {
-    // get the book's id by getting the id from the parent of the btn
-    const bookId = delBtn.parentNode.dataset.id;
-    // pass the id as the parameter value for removeBook()
-    removeBook(bookId);
-    // update display using displayBooks()
-    displayBooks();
-});
+
 
 
 
