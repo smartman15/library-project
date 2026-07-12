@@ -43,6 +43,11 @@ function displayBooks() {
                 const bookId = delBtn.parentNode.dataset.id;
                 // pass the id as the parameter value for removeBook()
                 removeBook(bookId);
+
+                // get the parent element
+                const parent = delBtn.parentNode;
+                // remove parent from DOM 
+                parent.remove();
             });
 
 
