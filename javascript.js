@@ -18,6 +18,20 @@ function addBookToLibrary(author, title, pages, read) {
     myLibrary.push(book);
 }
 
+// create book prototype function 'toggleRead' that toggles read status
+    // if hasRead is true
+        // set read status to false
+
+    // if hasRead is false
+        // set read status to true
+
+
+// create book prototype function to get read status
+// create book prototype function to set read status
+// create book prototype function 'hasRead' that returns true if book has been read, false otherwise
+
+
+
 // const book1 = new Book("Hajime Isayama", "Attack on Titan", 500, true);
 // const book2 = new Book("Marion Wheeler", "Antimemetics Division", 555, false);
 // const book3 = new Book("Caine", "The Amazing Digital Circus", 9, true);
@@ -50,14 +64,16 @@ function displayBooks() {
             // place beside the "delete book" button (NOTE: might have to make a container to put the two buttons side by side)
             
 
-            // on pressing the button, change read status as so:
-            // if the book read status is true
-                // make book read status false
-                // update book read status display
+            // on pressing readBtn, change read status as so:
+            // execute book prototype function 'toggleRead'
+
+            // if the book read status is true (use hasRead book function)
+                // update book read status display to false
 
             // if book read status is false
-                // make book read status true
-                // update book read status display
+                // update book read status display to true
+
+            
 
 
             const container = document.createElement("div");
