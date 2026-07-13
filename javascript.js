@@ -28,19 +28,13 @@ Book.prototype.setRead = function (status) {
 }
 // create book prototype function 'hasRead' that returns true if book has been read, false otherwise
 Book.prototype.hasRead = function () {
-    if (this.read === true) return true;
-    else return false;
+    if (this.getRead() == true) return true;
+    else if (this.getRead() == false) return false;
 }
 
 // create book prototype function 'toggleRead' that toggles read status
 Book.prototype.toggleRead = function () {
-    // if hasRead is true
-    if (this.hasRead) this.setRead(false);
-    // set read status to false
-
-    // if hasRead is false
-    if (!(this.hasRead)) this.setRead(true);
-    // set read status to true
+    this.setRead(!this.read);
 }
 
 
@@ -116,13 +110,10 @@ function displayBooks() {
 
             // on pressing readBtn, change read status as so:
             readBtn.addEventListener("click", () => {
-                
-
                 // execute book prototype function 'toggleRead'
                 book.toggleRead();
 
                 read.textContent = `Has been read: ${book.getRead()}`;
-                console.log(`read status: ${book.getRead()}`);
             });
 
 
