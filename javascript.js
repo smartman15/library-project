@@ -18,17 +18,34 @@ function addBookToLibrary(author, title, pages, read) {
     myLibrary.push(book);
 }
 
+// create book prototype function to get read status
+Book.prototype.getRead = function () {
+    return this.read;
+}
+// create book prototype function to set read status
+Book.prototype.setRead = function (status) {
+    this.read = status;
+}
+// create book prototype function 'hasRead' that returns true if book has been read, false otherwise
+Book.prototype.hasRead = function () {
+    if (this.read === true) return true;
+    else return false;
+}
+
 // create book prototype function 'toggleRead' that toggles read status
+Book.prototype.toggleRead = function () {
     // if hasRead is true
-        // set read status to false
+    if (this.hasRead) this.setRead(false);
+    // set read status to false
 
     // if hasRead is false
-        // set read status to true
+    if (!(this.hasRead)) this.setRead(true);
+    // set read status to true
+}
 
 
-// create book prototype function to get read status
-// create book prototype function to set read status
-// create book prototype function 'hasRead' that returns true if book has been read, false otherwise
+
+
 
 
 
@@ -48,6 +65,7 @@ console.log(myLibrary);
 function displayBooks() {
     if (myLibrary.length != 0) {
         for (let i = 0; i < myLibrary.length; i++) {
+            const book = myLibrary[i];
             const delBtn = document.createElement("button");
             delBtn.classList.add("del-button");
             delBtn.textContent = "Delete book";
@@ -58,22 +76,17 @@ function displayBooks() {
                 parent.remove();
             });
 
-            
 
-            // create button for read status with name "readBtn"
+
+            // create button for read status with name "readBtn" with class "read-button"
+            const readBtn = document.createElement("button");
+            readBtn.classList.add("read-button");
+            readBtn.textContent = "Toggle read status";
             // place beside the "delete book" button (NOTE: might have to make a container to put the two buttons side by side)
-            
 
-            // on pressing readBtn, change read status as so:
-            // execute book prototype function 'toggleRead'
-
-            // if the book read status is true (use hasRead book function)
-                // update book read status display to false
-
-            // if book read status is false
-                // update book read status display to true
 
             
+
 
 
             const container = document.createElement("div");
@@ -84,22 +97,39 @@ function displayBooks() {
             const read = document.createElement("div");
             const lineBreak = document.createElement("br");
             // create container btnContainer
+            const btnContainer = document.createElement("div");
+            // set btnContainer class to "button-container"
+            btnContainer.classList.add("button-container");
             // place delBtn in btnContainer
+            btnContainer.appendChild(delBtn);
             // place readBtn in btnContainer
+            btnContainer.append(readBtn);
 
 
-            setContainerId(container, myLibrary[i].id);
+            setContainerId(container, book.id);
 
             bookNumber.textContent = `Book ${i + 1}`;
-            author.textContent = `Author: ${myLibrary[i].author}`;
-            title.textContent = `Title: ${myLibrary[i].title}`;
-            pages.textContent = `Number of pages: ${myLibrary[i].pages}`;
-            read.textContent = `Has been read: ${myLibrary[i].read}`;
-            
+            author.textContent = `Author: ${book.author}`;
+            title.textContent = `Title: ${book.title}`;
+            pages.textContent = `Number of pages: ${book.pages}`;
+            read.textContent = `Has been read: ${book.read}`;
 
-            
+            // on pressing readBtn, change read status as so:
+            readBtn.addEventListener("click", () => {
+                
+
+                // execute book prototype function 'toggleRead'
+                book.toggleRead();
+
+                read.textContent = `Has been read: ${book.getRead()}`;
+                console.log(`read status: ${book.getRead()}`);
+            });
+
+
+
             container.appendChild(bookNumber);
             // place btnContainer in container
+            container.appendChild(btnContainer);
             container.appendChild(delBtn);
             container.appendChild(author);
             container.appendChild(title);
