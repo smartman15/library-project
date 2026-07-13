@@ -37,20 +37,27 @@ function displayBooks() {
             const delBtn = document.createElement("button");
             delBtn.classList.add("del-button");
             delBtn.textContent = "Delete book";
-            // on clicking the remove button on the book's display
             delBtn.addEventListener("click", () => {
-                // get the book's id by getting the id from the parent of the btn
                 const bookId = delBtn.parentNode.dataset.id;
-                // pass the id as the parameter value for removeBook()
                 removeBook(bookId);
-
-                // get the parent element
                 const parent = delBtn.parentNode;
-                // remove parent from DOM 
                 parent.remove();
             });
 
+            
 
+            // create button for read status with name "readBtn"
+            // place beside the "delete book" button (NOTE: might have to make a container to put the two buttons side by side)
+            
+
+            // on pressing the button, change read status as so:
+            // if the book read status is true
+                // make book read status false
+                // update book read status display
+
+            // if book read status is false
+                // make book read status true
+                // update book read status display
 
 
             const container = document.createElement("div");
@@ -60,19 +67,23 @@ function displayBooks() {
             const pages = document.createElement("div");
             const read = document.createElement("div");
             const lineBreak = document.createElement("br");
+            // create container btnContainer
+            // place delBtn in btnContainer
+            // place readBtn in btnContainer
 
-            // create id attribute for container 
-            // set the value to the book's id
+
             setContainerId(container, myLibrary[i].id);
 
             bookNumber.textContent = `Book ${i + 1}`;
-            // container.textContent = `Book ${i+1}`;
             author.textContent = `Author: ${myLibrary[i].author}`;
             title.textContent = `Title: ${myLibrary[i].title}`;
             pages.textContent = `Number of pages: ${myLibrary[i].pages}`;
             read.textContent = `Has been read: ${myLibrary[i].read}`;
+            
 
+            
             container.appendChild(bookNumber);
+            // place btnContainer in container
             container.appendChild(delBtn);
             container.appendChild(author);
             container.appendChild(title);
@@ -107,15 +118,10 @@ function clearBookList() {
 }
 
 function removeBook(id) {
-    // get the id of the book
-    // remove the book at that id
     myLibrary = myLibrary.filter((book) => book.id != id);
 }
 
-// get all buttons with class "del-button"
-// add click event listener to all of those buttons
-// on click, delete books from myLibrary[]
-// refresh display
+
 
 
 
