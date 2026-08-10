@@ -1,40 +1,40 @@
 let myLibrary = [];
 
-function Book(author, title, pages, read) {
-    if (!new.target) {
-        throw Error("you gotta use the 'new' keyword bro")
-    }
+// function Book(author, title, pages, read) {
+//     if (!new.target) {
+//         throw Error("you gotta use the 'new' keyword bro")
+//     }
 
-    this.id = self.crypto.randomUUID();
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.read = read;
-}
+//     this.id = self.crypto.randomUUID();
+//     this.author = author;
+//     this.title = title;
+//     this.pages = pages;
+//     this.read = read;
+// }
 
 function addBookToLibrary(author, title, pages, read) {
     const book = new Book(author, title, pages, read);
     myLibrary.push(book);
 }
 
-// create book prototype function to get read status
-Book.prototype.getRead = function () {
-    return this.read;
-}
-// create book prototype function to set read status
-Book.prototype.setRead = function (status) {
-    this.read = status;
-}
-// create book prototype function 'hasRead' that returns true if book has been read, false otherwise
-Book.prototype.hasRead = function () {
-    if (this.getRead() == true) return true;
-    else if (this.getRead() == false) return false;
-}
+// // create book prototype function to get read status
+// Book.prototype.getRead = function () {
+//     return this.read;
+// }
+// // create book prototype function to set read status
+// Book.prototype.setRead = function (status) {
+//     this.read = status;
+// }
+// // create book prototype function 'hasRead' that returns true if book has been read, false otherwise
+// Book.prototype.hasRead = function () {
+//     if (this.getRead() == true) return true;
+//     else if (this.getRead() == false) return false;
+// }
 
-// create book prototype function 'toggleRead' that toggles read status
-Book.prototype.toggleRead = function () {
-    this.setRead(!this.read);
-}
+// // create book prototype function 'toggleRead' that toggles read status
+// Book.prototype.toggleRead = function () {
+//     this.setRead(!this.read);
+// }
 
 class Book{
     id;
@@ -148,7 +148,7 @@ function displayBooks() {
                 // execute book prototype function 'toggleRead'
                 book.toggleRead();
 
-                read.textContent = `Has been read: ${book.getRead()}`;
+                read.textContent = `Has been read: ${book.read}`;
             });
 
 
