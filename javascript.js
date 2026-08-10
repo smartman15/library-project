@@ -12,7 +12,6 @@ function Book(author, title, pages, read) {
     this.read = read;
 }
 
-
 function addBookToLibrary(author, title, pages, read) {
     const book = new Book(author, title, pages, read);
     myLibrary.push(book);
@@ -36,6 +35,42 @@ Book.prototype.hasRead = function () {
 Book.prototype.toggleRead = function () {
     this.setRead(!this.read);
 }
+
+class Book{
+    id;
+    author;
+    title;
+    pages;
+    read;
+
+    constructor(author, title, pages, read){
+        this.id = self.crypto.randomUUID();
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    get read(){
+        return this.read;
+    }
+
+    set read(value){
+        this.read = value;
+    }
+
+    hasRead(){
+        if (this.read == true) return true;
+        else if (this.read == false) return false;
+    }
+
+    toggleRead(){
+        this.read = !this.read;
+    }
+}
+
+
+
 
 
 
