@@ -226,12 +226,20 @@ showDialog.addEventListener("click", () => {
 
 // create function that gets the author input value and places it in output tag
 confirmBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    dialog.close([authorValue.value,
-    titleValue.value,
-    pagesValue.value,
-    readValue.value
+    if(!authorField.validity.valid){
+        showAuthorError();
+        event.preventDefault();
+    }
+    
+    else{
+        event.preventDefault();
+        dialog.close([authorValue.value,
+        titleValue.value,
+        pagesValue.value,
+        readValue.value
     ]);
+    }
+    
 })
 
 // create function to close dialog using close button
