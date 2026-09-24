@@ -5,3 +5,8 @@
 .grid-hcenter{
     justify-items: center;
 }
+
+input:invalid,
+input:focus:invalid{
+    background-color: rgb(231, 168, 168);
+}
