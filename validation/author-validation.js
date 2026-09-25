@@ -1,7 +1,7 @@
 const form = document.querySelector('form');
 const authorParagraph = document.querySelector('.author-field')
 const authorField = document.getElementById('author');
-const authorError = document.querySelector('#author + span');
+let authorError = document.querySelector('#author + span');
 
 
 authorField.addEventListener('input', (event) => {
