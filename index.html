@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
     <script src="./javascript.js" defer></script>
+    <script src="./validation/author-validation.js" defer></script>
     <title>Document</title>
 </head>
 
@@ -17,7 +18,7 @@
     <button class="add-book">Add new book</button>
 
     <dialog id="book-dialog">
-        <form novalidate>
+        <form novalidate onsubmit="event.preventDefault()">
             <p class="author-field">
                 <label for="author">Enter author: </label>
                 <input type="text" id="author" required>
