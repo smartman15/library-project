@@ -6,7 +6,7 @@ let authorError = document.querySelector('#author + span');
 
 authorField.addEventListener('input', (event) => {
     if(authorField.validity.valid){
-        authorError = '';
+        authorError.textContent = '';
     }
 
     else{
