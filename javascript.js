@@ -235,6 +235,11 @@ confirmBtn.addEventListener("click", (event) => {
         showTitleError();
         event.preventDefault();
     }
+
+    if(!pageField.validity.valid){
+        showPageError();
+        event.preventDefault();
+    }
     
     else{
         event.preventDefault();
