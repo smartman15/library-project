@@ -21,10 +21,3 @@ function showAuthorError(){
     }
 }
 
-
-form.addEventListener('submit', (event) => {
-    if(!authorField.validity.valid){
-        showAuthorError();
-        event.preventDefault();
-    }
-})
