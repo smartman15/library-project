@@ -230,6 +230,11 @@ confirmBtn.addEventListener("click", (event) => {
         showAuthorError();
         event.preventDefault();
     }
+
+    if(!titleField.validity.valid){
+        showTitleError();
+        event.preventDefault();
+    }
     
     else{
         event.preventDefault();
